@@ -1,0 +1,53 @@
+[package]
+name = 'mdict_index'
+version = '0.1.0'
+authors = ['韩朴宇 <w12101111@gmail.com>']
+edition = '2018'
+license = 'GPL-3.0-or-later'
+build = "build.rs"
+
+[features]
+async = [
+    'tokio',
+    'async-trait',
+    'mdict/async',
+]
+sqlite = [
+    'async',
+    'sqlx',
+]
+
+[dependencies]
+encoding_rs = '0.8'
+bytes = '0.5'
+log = '0.4'
+
+[dependencies.patricia_tree]
+path = '../../patricia_tree'
+
+[dependencies.mdict]
+path = '../mdict'
+
+[dependencies.tokio]
+version = '0.2'
+features = [
+    'fs',
+    'io-driver',
+    'io-util',
+]
+optional = true
+
+[dependencies.async-trait]
+version = '0.1'
+optional = true
+
+[dependencies.sqlx]
+git = 'https://github.com/Patryk27/sqlx.git'
+branch = 'fix/616-statement-worker'
+optional = true
+default-features = false
+features = [
+    'runtime-tokio',
+    'macros',
+    'sqlite',
+]

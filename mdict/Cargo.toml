@@ -1,0 +1,33 @@
+[package]
+name = 'mdict'
+version = '0.1.0'
+description = 'Library to read and parse Octopus MDict Dictionary File (.mdx) and Resource File (.mdd)'
+authors = ['韩朴宇 <w12101111@gmail.com>']
+edition = '2018'
+license = 'GPL-3.0-or-later'
+keywords = [
+    'dictionary',
+    'mdict',
+    'mdx',
+    'mdd',
+]
+categories = ['encoding']
+
+[features]
+async = ['tokio']
+
+[dependencies]
+log = '0.4'
+encoding_rs = '0.8'
+regex = '1'
+bytes = '0.5'
+adler = '0.2'
+miniz_oxide = '0.4'
+ripemd128 = '0.1'
+minilzo = '0.2'
+html-escape = '0.2'
+
+[dependencies.tokio]
+version = '0.2'
+features = ['io-util']
+optional = true

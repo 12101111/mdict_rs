@@ -1,0 +1,24 @@
+[package]
+name = 'mdict_dump'
+version = '0.1.0'
+description = 'Simple program loading mdx and mdd files and print all keywords in mdx file'
+authors = ['韩朴宇 <w12101111@gmail.com>']
+edition = '2018'
+license = 'GPL-3.0-or-later'
+keywords = [
+    'dictionary',
+    'mdict',
+    'mdx',
+    'mdd',
+]
+categories = ['command-line-utilities']
+
+[dependencies]
+log = '0.4'
+pretty_env_logger = '0.4'
+
+[dependencies.mdict]
+path = '../mdict'
+
+[dependencies.mdict_index]
+path = '../mdict_index'

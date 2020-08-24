@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    '.',
+    'mdict',
+    'mdict_index',
+    'mdict_dump',
+    'mdict_simple_server',
+]

@@ -1,0 +1,40 @@
+[package]
+name = "mdict_simple_server"
+version = "0.1.0"
+authors = ['韩朴宇 <w12101111@gmail.com>']
+edition = '2018'
+license = 'GPL-3.0-or-later'
+
+[dependencies]
+mime_guess = '2'
+mime = '0.3'
+log = '0.4'
+pretty_env_logger = '0.4'
+thiserror = '1'
+bytes = '0.5'
+urlencoding = '1'
+encoding_rs = '0.8'
+regex = '1'
+
+[dependencies.mdict_index]
+path = '../mdict_index'
+features = [
+    'async',
+    'sqlite',
+]
+
+[dependencies.mdict]
+path = '../mdict'
+features = ['async']
+
+[dependencies.warp]
+version = '0.2'
+default-features = false
+
+[dependencies.tokio]
+version = '0.2'
+features = [
+    'rt-threaded',
+    'macros',
+    'signal',
+]
