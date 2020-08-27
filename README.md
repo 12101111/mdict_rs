@@ -29,3 +29,5 @@ Working in progress.
 [mdict-analysis](https://bitbucket.org/xwang/mdict-analysis/) by Xiaoqiang Wang
 
 [writemdict](https://github.com/zhansliu/writemdict) by zhansliu
+
+[flask-mdict](https://github.com/liuyug/flask-mdict) by liuyug

@@ -1,7 +1,7 @@
 [package]
-name = "mdict_simple_server"
+name = "mdict_server"
 version = "0.1.0"
-description = "Web server to lookup in an Octopus MDict Dictionary"
+description = "Web server to lookup Octopus MDict Dictionaries"
 authors = ['韩朴宇 <w12101111@gmail.com>']
 edition = '2018'
 license = 'GPL-3.0-or-later'

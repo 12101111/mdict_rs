@@ -65,7 +65,7 @@ async fn main() {
         .with(log);
     let (tx, rx) = tokio::sync::oneshot::channel();
     let (addr, server) =
-        warp::serve(routes).bind_with_graceful_shutdown(([127, 0, 0, 1], 8080), async move {
+        warp::serve(routes).bind_with_graceful_shutdown(([127, 0, 0, 1], 8000), async move {
             rx.await.ok();
             mdict_clone.close().await;
         });

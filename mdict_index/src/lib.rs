@@ -16,6 +16,7 @@ pub use sqlite::*;
 
 #[cfg(not(feature = "async"))]
 pub trait MDictLookup {
+    fn word_exists(&self, key: &str) -> io::Result<bool>;
     fn lookup_word(&self, key: &str) -> io::Result<String>;
     fn lookup_resource(&self, key: &str) -> io::Result<Bytes>;
 }
@@ -23,6 +24,7 @@ pub trait MDictLookup {
 #[cfg(feature = "async")]
 #[async_trait]
 pub trait MDictAsyncLookup {
+    async fn word_exists(&self, key: &str) -> io::Result<bool>;
     async fn lookup_word(&self, key: &str) -> io::Result<String>;
     async fn lookup_resource(&self, key: &str) -> io::Result<Bytes>;
 }
@@ -113,6 +115,9 @@ impl MDictMemIndex {
 
 #[cfg(not(feature = "async"))]
 impl MDictLookup for MDictMemIndex {
+    fn word_exists(&self, key: &str) -> io::Result<bool> {
+        Ok(self.mdx_index.get(&key).is_some())
+    }
     fn lookup_word(&self, key: &str) -> io::Result<String> {
         match self.mdx_index.get(&key) {
             Some(idx) => {
@@ -155,6 +160,9 @@ use async_trait::async_trait;
 #[cfg(feature = "async")]
 #[async_trait]
 impl MDictAsyncLookup for MDictMemIndex {
+    async fn word_exists(&self, key: &str) -> io::Result<bool> {
+        Ok(self.mdx_index.get(&key).is_some())
+    }
     async fn lookup_word(&self, key: &str) -> io::Result<String> {
         match self.mdx_index.get(&key) {
             Some(idx) => {

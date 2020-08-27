@@ -1,10 +1,17 @@
 [package]
 name = 'mdict_index'
 version = '0.1.0'
+description = 'Library to lookup Octopus MDict Dictionary based on patricia tree or sqlite'
 authors = ['韩朴宇 <w12101111@gmail.com>']
 edition = '2018'
 license = 'GPL-3.0-or-later'
-build = "build.rs"
+build = 'build.rs'
+keywords = [
+    'dictionary',
+    'mdict',
+    'mdx',
+    'mdd',
+]
 
 [features]
 async = [

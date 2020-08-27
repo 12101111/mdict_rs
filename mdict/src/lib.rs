@@ -209,13 +209,15 @@ impl MDictHeader {
         let version = attrs
             .get("GeneratedByEngineVersion")
             .map(|e| e.as_str().into())
-            .ok_or_else(|| Error::new(
-                ErrorKind::InvalidData,
-                format!(
-                    "Unknown format version: {:?}",
-                    attrs.get("GeneratedByEngineVersion")
-                ),
-            ))?;
+            .ok_or_else(|| {
+                Error::new(
+                    ErrorKind::InvalidData,
+                    format!(
+                        "Unknown format version: {:?}",
+                        attrs.get("GeneratedByEngineVersion")
+                    ),
+                )
+            })?;
         // TODO: deal with Title Description StyleSheet Compact Left2Right
         // StyleSheet format:
         // 3 lines per StyleSheet

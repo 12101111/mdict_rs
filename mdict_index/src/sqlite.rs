@@ -329,6 +329,13 @@ impl MDictSqliteIndex {
 
 #[async_trait]
 impl MDictAsyncLookup for MDictSqliteIndex {
+    async fn word_exists(&self, key: &str) -> io::Result<bool> {
+        let query = sqlx::query!("select keyword from mdx_index where keyword = ?1", key)
+            .fetch_optional(&self.pool)
+            .await
+            .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+        Ok(query.is_some())
+    }
     async fn lookup_word(&self, key: &str) -> io::Result<String> {
         let query: Option<MdxQuery> =
             sqlx::query_as("select * from mdx_index natural join mdx_block where keyword = ?1")

@@ -5,4 +5,5 @@ members = [
     'mdict_index',
     'mdict_dump',
     'mdict_simple_server',
+    'mdict_server',
 ]

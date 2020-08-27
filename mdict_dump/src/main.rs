@@ -1,6 +1,6 @@
 //! # mdict_dump
 //!
-//! This simple program load mdx and mdd files and then print all keywords in 
+//! This simple program load mdx and mdd files and then print all keywords in
 //! mdx file to stdout.
 //!
 //! # Usage
@@ -10,7 +10,7 @@
 //! ```
 //!
 //! # panic
-//! 
+//!
 //! This program will panic if the mdx file is invalid or can't be opened by `mdict`
 
 use mdict_index::*;
